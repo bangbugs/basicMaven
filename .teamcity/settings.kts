@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2018_2.*
+import jetbrains.buildServer.configs.kotlin.v2018_2.buildSteps.maven
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -36,5 +37,18 @@ object SampleMavenbuild : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+    }
+
+    steps {
+        maven {
+            name = "maven build"
+            goals = "clean"
+            pomLocation = "simple/pom.xml"
+            workingDir = "simple"
+            mavenVersion = custom {
+                path = "/opt/apache-maven-3.6.1/bin"
+            }
+            jdkHome = "/usr/lib/jvm/java-11-openjdk-amd64"
+        }
     }
 })
