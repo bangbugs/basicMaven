@@ -35,6 +35,7 @@ changeBuildType(RelativeId("SampleMavenbuild")) {
     }
     steps {
         update<MavenBuildStep>(0) {
+            goals = "clean install"
             mavenVersion = defaultProvidedVersion()
             jdkHome = ""
         }
