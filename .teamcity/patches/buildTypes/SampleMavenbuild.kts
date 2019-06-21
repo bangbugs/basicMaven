@@ -14,7 +14,7 @@ changeBuildType(RelativeId("SampleMavenbuild")) {
     check(artifactRules == "") {
         "Unexpected option value: artifactRules = $artifactRules"
     }
-    artifactRules = "target/*.jar [=> simple]"
+    artifactRules = "/opt/buildagent/work/95cdb3ed76384662/simple/target/*.jar [=> simple]"
 
     check(publishArtifacts == PublishMode.NORMALLY_FINISHED) {
         "Unexpected option value: publishArtifacts = $publishArtifacts"
