@@ -31,6 +31,7 @@ changeBuildType(RelativeId("SampleMavenbuild")) {
     steps {
         update<MavenBuildStep>(0) {
             mavenVersion = defaultProvidedVersion()
+            jdkHome = ""
         }
     }
 }
