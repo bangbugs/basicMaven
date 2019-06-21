@@ -11,6 +11,11 @@ To apply the patch, change the buildType with id = 'SampleMavenbuild'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("SampleMavenbuild")) {
+    check(artifactRules == "") {
+        "Unexpected option value: artifactRules = $artifactRules"
+    }
+    artifactRules = "simple => simple"
+
     check(publishArtifacts == PublishMode.NORMALLY_FINISHED) {
         "Unexpected option value: publishArtifacts = $publishArtifacts"
     }
